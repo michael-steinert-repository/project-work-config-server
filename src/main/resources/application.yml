@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: CONFIG-SERVER
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: .
+        #git:
+          #uri: C:/Users/stein/Desktop/project-work/backend/config-repository
+          #clone-on-start: true
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
+      #defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 5
+    metadataMap:
+      instanceId: ${spring.application.name}:${random.value}
