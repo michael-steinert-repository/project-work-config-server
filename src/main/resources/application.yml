@@ -6,11 +6,11 @@ spring:
   cloud:
     config:
       server:
-        native:
-          searchLocations: .
-        #git:
-          #uri: C:/Users/stein/Desktop/project-work/backend/config-repository
-          #clone-on-start: true
+        #native:
+          #searchLocations: .
+        git:
+          uri: https://github.com/michael-steinert-repository/project-work-config-repository
+          clone-on-start: true
 
 server:
   port: 8888
